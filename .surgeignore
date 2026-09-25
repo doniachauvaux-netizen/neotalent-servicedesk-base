@@ -1,0 +1,12 @@
+.git/
+.gitignore
+.claude/
+.remember/
+demo0_antes/
+docs/
+deep-research/
+js/**/*.test.js
+js/components/README.md
+js/utils/README.md
+CLAUDE.md
+README.md

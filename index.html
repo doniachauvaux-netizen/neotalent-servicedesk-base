@@ -2,22 +2,46 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mini Service Desk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Mini Service Desk — Triaje de seguridad física</title>
   <link rel="stylesheet" href="css/styles.css" />
+  <!-- Aplica el tema guardado antes de pintar, para que no haya destello de tema equivocado. -->
+  <script>
+    try {
+      const guardado = localStorage.getItem("tema");
+      if (guardado) document.documentElement.dataset.tema = guardado;
+    } catch (e) {
+      /* localStorage bloqueado: se usa el tema del sistema */
+    }
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("entrada-pendiente");
+      setTimeout(() => document.documentElement.classList.remove("entrada-pendiente", "entrada-activa"), 3000);
+    }
+  </script>
 </head>
 <body>
-  <!--
-    Esto es un placeholder, no la app. La interfaz real (lista de tickets, ficha,
-    clasificación, métricas) se construye en la Sesión 3, Fase 3 (Desarrollo) —
-    ver docs/spec.md, que sale de la Fase 1.
-    Este stub solo comprueba que data/tickets.json es accesible desde el navegador.
-  -->
-  <main>
-    <h1>Mini Service Desk</h1>
-    <p class="estado">Aún sin construir — llegará en la Sesión 3.</p>
-    <p id="conteo">Cargando dataset…</p>
-  </main>
-  <script src="js/app.js"></script>
+  <div class="aurora" aria-hidden="true"></div>
+
+  <header class="barra">
+    <div class="marca">
+      <span class="marca-texto">Service Desk <em>Seguridad física</em></span>
+    </div>
+    <button type="button" id="tema" class="boton-tema" aria-label="Cambiar entre tema claro y oscuro">
+      <span class="icono-tema" aria-hidden="true"></span>
+      <span class="boton-tema-texto">Tema</span>
+    </button>
+  </header>
+
+  <main id="vista" aria-live="polite"></main>
+
+  <script type="module" src="js/app.js"></script>
+  <script>
+    addEventListener("load", () => {
+      const raiz = document.documentElement;
+      if (!raiz.classList.contains("entrada-pendiente")) return;
+      raiz.classList.replace("entrada-pendiente", "entrada-activa");
+      setTimeout(() => raiz.classList.remove("entrada-activa"), 1900);
+    });
+  </script>
 </body>
 </html>

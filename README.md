@@ -20,7 +20,18 @@ Los datos son inventados de cero — cero relación con clientes reales.
 |---|---|
 | Sesión 2 | Este repo (fork) + el Project "Mini Service Desk" en Claude, con este README en el Knowledge |
 | Sesión 3 | El spec de la funcionalidad (Fase 1), el diseño de las pantallas con Artifacts (Fase 2), y el desarrollo con Claude Code (Fase 3) |
-| Sesión 4 | Tests y validación del dataset (Fase 4), despliegue (Fase 5, con la herramienta que prefieras) y una automatización en n8n para el triaje (Fase 6) |
+| Sesión 4 | Diseño con la skill frontend-design, tests y botón de nuevo ticket (Fase 4), auditoría y despliegue en surge.sh (Fase 5) |
+| Sesión 5 | Automatización en n8n para las incidencias (Fase 6) y agentes sobre este mismo proyecto |
+
+## Versiones
+
+| Etiqueta | Qué contiene |
+|---|---|
+| `v1` | El punto de partida que hizo fork todo el mundo en la Sesión 2: dataset y estructura vacía |
+| `v2` | El proyecto terminado al acabar la Sesión 4: spec, constitución, app completa, tests y la skill `auditoria-antes-de-publicar` |
+
+Si no llegaste a terminar, puedes partir de `v2` para la Sesión 5. La estructura de carpetas de
+abajo describe la `v1`.
 
 ## Estructura del repositorio
 
